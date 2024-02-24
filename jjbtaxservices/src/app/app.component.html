@@ -8,6 +8,31 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <style>
+
+  .header-tabs {
+    width: 75px; 
+    padding-right: 15px;
+    padding: 8px 12px;
+    margin: 5px;
+    color: white;
+  }
+
+  .header-tabs:hover{
+    animation: fadeIn 1s;
+    margin: 3px;
+    border: 2px solid #eeeeee; padding: 8px 12px;
+    /* color: white; */
+  }
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+  .selected {
+    border: 2px solid #eeeeee; padding: 8px 12px;
+  }
+
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 14px;
@@ -166,12 +191,12 @@
   a,
   a:visited,
   a:hover {
-    color: #1976d2;
+    color: white;
     text-decoration: none;
   }
 
   a:hover {
-    color: #125699;
+    color: white;
   }
 
   .terminal {
@@ -313,14 +338,15 @@
   
   <!-- <span>Welcome</span> -->
     <!-- <div class="spacer"></div> -->
-    <div style="margin-left: auto; margin-right: 0;">
-      <span style="width: 75px;">Home</span>
-      <span style="width: 75px;">Small Business</span>
-      <span style="width: 75px;">Individuals</span>
-      <span style="width: 75px;">Young Entrepreneur Program</span>
-      <span style="width: 75px;">About</span>
-      <span style="width: 75px;">Contact</span>
-      <span style="width: 75px;">Encryo</span>
+    <div style="margin-left: auto; margin-right: 0; display: inline;">
+      <!-- Add div that is the border to make the transistion cleaner -->
+      <a class="header-tabs selected">Home</a>
+      <a class="header-tabs" onmouseover="changeClass(this)">Small Business</a>
+      <a class="header-tabs" onmouseover="changeClass()">Individuals</a>
+      <a class="header-tabs" onmouseover="changeClass()">Young Entrepreneur Program</a>
+      <a class="header-tabs" onmouseover="changeClass()">About</a>
+      <a class="header-tabs" onmouseover="changeClass()">Contact</a>
+      <a class="header-tabs" onmouseover="changeClass()">Encryo</a>
     </div>
     <!-- <a aria-label="Angular on X" target="_blank" rel="noopener" href="https://twitter.com/angular" title="X">
       <svg id="twitter-logo" xmlns="http://www.w3.org/2000/svg" height="24" width="24" data-name="Logo" viewBox="0 0 512 512" fill="#fff">
@@ -482,6 +508,12 @@
   </svg>
 
 </div>
+
+<script>
+  function changeClass(tab) {
+      tab.classList.add("selected");
+  }
+</script>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
